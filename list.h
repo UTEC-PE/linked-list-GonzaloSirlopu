@@ -17,7 +17,7 @@ class List {
         void print_reverse(Node<T>* head);
 
     public:
-        List();
+        List(); // No se implementó
 
         T front(){
             if(!head){throw "lista vacia";}
@@ -44,7 +44,7 @@ class List {
             Node<T>* temporal = new Node<T>;
             temporal -> data = value;
             temporal -> next = nullptr;
-            if(empty){
+            if(empty){ // Qué es empty? Esto no va a compilar
                 head=temporal;
                 tail=temporal;
             }
@@ -53,7 +53,7 @@ class List {
                 tail = temporal;
             }
         };
-        void pop_front(){
+        void pop_front(){ // No se verifica si la lista está vacía
             Node<T>* temporal = head;
             head -> next = head;
             delete temporal;
@@ -84,21 +84,21 @@ class List {
                 }
             }
         };
-        void concat(List<T> &other){
-            this -> tail -> next =other -> head;
+        void concat(List<T> &other){ // Y si alguna lista está vacía?
+            this -> tail -> next =other -> head; // Other es un objeto, no un puntero. Esto no va a compilar
             this -> tail = other -> tail;
         };
         bool empty(){return head==nullptr;};
-        int size(){
+        int size(){ // No se implementó
 
         };
-        void print(){
+        void print(){ // No se implementó
 
         };
-        void print_reverse(){
+        void print_reverse(){ // No se implementó
             if(!head){throw "Empty";}
         };
-        void clear(){
+        void clear(){ // No es tan simple, debes dar delete a todos los elementos 
             head=nullptr;
             tail=nullptr;
             nodes=0;
@@ -106,6 +106,6 @@ class List {
         Iterator<T> begin();
         Iterator<T> end();
 
-        ~List();
+        ~List(); // No se implementó
 };
 #endif
